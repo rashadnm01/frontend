@@ -3,7 +3,7 @@ import "./App.css";
 // IMPORT COMPONENTS
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 // IMPORT PAGES
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -16,17 +16,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/projects">
-          <Projects URL={URL} />
-        </Route>
-        <Route path="/about">
-          <About URL={URL} />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/projects" element={<Projects URL={URL} />} />
+        <Route exact path="/about" element={<About URL={URL} />} />
+      </Routes>
       <Footer />
     </div>
   );
